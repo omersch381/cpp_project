@@ -11,7 +11,7 @@ protected:
     int month;
     int year;
 public:
-    Date(int day, int month, int year)
+    Date(const int day, const int month, const int year)
     {
         this->day = day;
         this->month = month;
@@ -30,7 +30,7 @@ public:
     int getMonth() const{ return month;}
     int getYear() const{ return year;}
 
-    const Date& operator=(const Date& otherDate)
+    Date& operator=(const Date& otherDate)
     {
         if (this != &otherDate)
         {

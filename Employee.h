@@ -6,7 +6,7 @@ using namespace std;
 
 #include "Person.h"
 
-class Employee : virtual public Person
+class Employee : public Person
 {
 
 protected:
@@ -15,16 +15,18 @@ protected:
     int numOfWorkingDays;
     char** weeklyWorkingDays;
 
-public:
-    Employee(const Person& thePerson, const Date& startingDate, int salary, int numOfWorkingDays, char** weeklyWorkingDays): Person(thePerson)
-    { //TODO
-        startingDate = new Date(startingDate.getDay(), startingDate.getMonth(), startingDate.getYear());
-    }
-
-    // Employee(const Employee& otherEmployee)
+    // TODO - we might not use this constructor
+    // Employee(const Person& thePerson, const Date& startingDate, int salary, int numOfWorkingDays, char** weeklyWorkingDays): Person(thePerson)
     // {
-
+    //     this->startingDate = new Date(startingDate.getDay(), startingDate.getMonth(), startingDate.getYear());
+    //     this->salary = salary;
+    //     this->numOfWorkingDays = numOfWorkingDays;
+    //     this->weeklyWorkingDays = weeklyWorkingDays;
     // }
+    Employee(int id, const char* name, const Date* birthDate, const Date* startingDate, int salary, int numOfWorkingDays, char** weeklyWorkingDays)
+     : Person(id, name, birthDate), startingDate(startingDate), salary(salary), numOfWorkingDays(numOfWorkingDays), weeklyWorkingDays(weeklyWorkingDays)
+    {
+    }
 
     ~Employee()
     {
@@ -34,7 +36,7 @@ public:
 
 	    delete[]weeklyWorkingDays;
     }
-    
+public:
     bool operator<(const Employee& other) const{return (salary < other.salary);}
 
     bool operator>(const Employee& other) const{return (salary > other.salary);}
@@ -46,6 +48,13 @@ public:
     void operator+=(int raise){salary += raise;}
 
     friend ostream& operator<<(ostream& os, const Employee& e);
+
+    virtual char* showEmployee();
+
+    const Date* getStartingDate() const{return startingDate;}
+    int getSalary() const{return salary;}
+    int getNumOfWorkingDays() const{return numOfWorkingDays;}
+    char** getWeeklyWorkingDays() const{return weeklyWorkingDays;}
 };
 
 #endif //EMPLOYEE_E

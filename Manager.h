@@ -8,12 +8,15 @@ using namespace std;
 
 enum class eDepartment { CLEANING, ENGINEERING, GUARDS, MANAGERS };
 
-class Manager: virtual public Employee
+class Manager: public Employee
 {
+    //TODO - we need to make it an abstract class
     
 protected:
     eDepartment department;
 
+public:
+    virtual char* showEmployee();
 };
 
 #endif //MANAGER_H

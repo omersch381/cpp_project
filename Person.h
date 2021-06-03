@@ -15,11 +15,12 @@ protected:
     char* name;
     Date* birthDate;
 public:
-    Person(int id, const char* name, const Date* date) : id(id), name(nullptr), birthDate(nullptr)
+    //TODO - we need to make it an abstract class
+    Person(int id, const char* name, const Date* birthDate) : id(id), name(nullptr), birthDate(nullptr)
     {
-        this->id = id;
+        // this->id = id;
         setName(name);
-        setDate(date);
+        setBirthDate(birthDate);
     }
     ~Person()
     {
@@ -29,7 +30,7 @@ public:
     
     int getID() const { return id;}
     char* getName() const { return name;}
-    const Date& getDate() const { return *birthDate;} 
+    const Date* getBirthDate() const { return birthDate;} 
     
     void setName(const char* name)
     {
@@ -38,7 +39,7 @@ public:
 	    strcpy(this->name, name);
     }
     
-    void setDate(const Date* otherDate)
+    void setBirthDate(const Date* otherDate)
     {
         delete this->birthDate;
         this->birthDate = new Date(otherDate->getDay(), otherDate->getMonth(), otherDate->getYear());

@@ -7,12 +7,14 @@ using namespace std;
 #include "Manager.h"
 #include "Engineer.h"
 
-class EngineeringTeamLead: virtual public Manager, virtual public Engineer 
+class EngineeringTeamLead: public Manager, public Engineer 
 {
     
 protected:
     Engineer* team;
 
+public:
+    virtual char* showEmployee();
 };
 
 #endif //ENGINEERING_TEAM_LEAD_H

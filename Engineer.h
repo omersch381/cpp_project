@@ -6,7 +6,7 @@ using namespace std;
 
 #include "Employee.h"
 
-class Engineer: virtual public Employee
+class Engineer: public Employee
 {
 protected:
     char* specialty;
@@ -14,6 +14,7 @@ protected:
 public:
     Engineer(char* specialty);
     ~Engineer();
+    virtual char* showEmployee();
 };
 
 #endif //ENGINEER_H

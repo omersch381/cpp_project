@@ -6,11 +6,12 @@ using namespace std;
 
 #include "Employee.h"
 
-class Cleaner: virtual public Employee
+class Cleaner: public Employee
 {
     
 public:
     const char* clean(){return "Cleaning!";}
+    virtual char* showEmployee();
 };
 
 #endif //CLEANER_H

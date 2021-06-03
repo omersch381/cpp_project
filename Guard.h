@@ -7,24 +7,26 @@ using namespace std;
 #include "Employee.h"
 #include "Pistol.h"
 
-class Guard: virtual public Employee
+class Guard: public Employee
 {
 
 protected:
     char* weaponSpecialty;
     Pistol* pistol;
-    Guard(const Guard& otherGuard);
+    // Guard(const Guard& otherGuard);
 
 public:
-    // TODO
-    Guard(const Employee& theEmployee, const Pistol& thePistol, const char* weaponSpecialty) : Employee(theEmployee), weaponSpecialty(nullptr)
+    Guard(int id, const char* name, const Date* birthDate, const Date* startingDate, int salary, int numOfWorkingDays, char** weeklyWorkingDays, const char* weaponSpecialty, const Pistol* p)
+    : Employee(id, name, birthDate, startingDate, salary, numOfWorkingDays, weeklyWorkingDays), weaponSpecialty(nullptr), pistol(nullptr)
     {
-        setPistol(&thePistol);
+        setWeaponSpecialty(weaponSpecialty);
+        setPistol(p);
     }
 
     ~Guard()
     {
-        //TODO
+        delete this->pistol;
+        delete this->weaponSpecialty;
     }
 
     void setPistol(const Pistol* thePistol)
@@ -34,6 +36,15 @@ public:
     }
 
     const Pistol& getPistol() const {return *pistol;}
+
+    virtual char* showEmployee();
+
+    void setWeaponSpecialty(const char* weaponSpecialty)
+    {
+        delete[]this->weaponSpecialty;
+	    this->weaponSpecialty = new char[strlen(weaponSpecialty) + 1];
+	    strcpy(this->weaponSpecialty, weaponSpecialty);
+    }
 };
 
 #endif //GUARD_H
