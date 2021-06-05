@@ -1,24 +1,31 @@
 #include <iostream>
 
-
 using namespace std;
 
 #include "Guard.h"
 #include "Company.h"
+#include <string.h>
+
+#define DAYS_OF_WEEK 10
 
 int main()
 {
     Company c;
 
-    char* workingDays[] = {"Sunday", "Monday"};
-    const Guard guard(0, "Guard", new Date(1,1,1970),
-                      new Date(1,1,2020), 10000, 0, workingDays, "07", new Pistol(29));
-    const Cleaner cleaner(1, "Cleaner", new Date(2,1,1970),
+    // Initialize working days
+    char* sunday = strdup("Sunday");
+    char* monday = strdup("Monday");
+    char* workingDays[] = {sunday, monday};
+
+    Guard guard(0, "Guard", new Date(1,1,1970),
+                      new Date(1,1,2020), 10000, 0, workingDays, "07", new Pistol(8));
+    Cleaner cleaner(1, "Cleaner", new Date(2,1,1970),
                           new Date(1,1,2020), 10000, 0, workingDays);
-    const Engineer engineer(0, "Engineer", new Date(1,1,1970),
+    Engineer engineer(0, "Engineer", new Date(1,1,1970),
                             new Date(1,1,2020), 10000, 0, workingDays, "cpp");
-    const Manager manager(1, "Manager", new Date(2,1,1970),
-                          new Date(1,1,2020), 10000, 0, workingDays,Manager::eDepartment::ENGINEERING);
+    Manager manager(1, "Manager", new Date(2,1,1970),
+                          new Date(1,1,2020), 10000, 0, workingDays, Manager::eDepartment::ENGINEERING);
+
     /* add all employees*/
     c.addGuard(guard);
     c.addCleaner(cleaner);
@@ -47,6 +54,10 @@ int main()
     c.removeCleaner(cleaner);
     c.removeEngineer(engineer);
     c.removeManager(manager);
+
+    // delete all heap resources which were allocated on the main
+    delete sunday;
+    delete monday;
 
     return 0;
 }

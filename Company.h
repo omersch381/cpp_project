@@ -16,23 +16,22 @@ protected:
     Employee** employees;
 
 public:
-    // Company();
-    //TODO: verify if receiving the employees as const i a good idea in add methods
-    void addGuard(const Guard& g){};
-    void updateGuard(const Guard& g){};
-    void removeGuard(const Guard& g){};
-    void addCleaner(const Cleaner& c){};
-    void updateCleaner(const Cleaner& c){};
-    void removeCleaner(const Cleaner& c){};
-    void addEngineer(const Engineer& e){};
-    void updateEngineer(const Engineer& e){};
-    void removeEngineer(const Engineer& e){};
-    void addManager(const Manager& m){};
-    void updateManager(const Manager& m){};
-    void removeManager(const Manager& m){};
+    // We didn't allow adding const epmloyees as we might want to update them later on
+    void addGuard(Guard& g){};
+    void updateGuard(Guard& g){};
+    void removeGuard(Guard& g){};
+    void addCleaner(Cleaner& c){};
+    void updateCleaner(Cleaner& c){};
+    void removeCleaner(Cleaner& c){};
+    void addEngineer(Engineer& e){};
+    void updateEngineer(Engineer& e){};
+    void removeEngineer(Engineer& e){};
+    void addManager(Manager& m){};
+    void updateManager(Manager& m){};
+    void removeManager(Manager& m){};
     void showEmployeesWithHighestSalaries(){};
     void sendBirthdayCards(){}; //should iterate over all the employees in the company and check who has birthdays this months
-    void addBonusToOutstandingEngineer(const Engineer& e, const int bonus){}; //give a bonus to an outstanding engineer
+    void addBonusToOutstandingEngineer(Engineer& e, const int bonus){}; //give a bonus to an outstanding engineer
     void printDailyShift(const char* day){}; //print all the working employees of the given day
 };
 

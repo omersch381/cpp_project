@@ -19,7 +19,7 @@ public:
     }
     Engineer(char* specialty);
     virtual ~Engineer(){};
-    char* showEmployee() const { return "TODO: add implementation"; };
+    const char* showEmployee() const { return "TODO: add implementation"; };
     void setSpecialty(const char* specialty)
     {
         delete[]this->specialty;

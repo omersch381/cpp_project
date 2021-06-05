@@ -13,7 +13,6 @@ class Guard: public Employee
 protected:
     char* weaponSpecialty;
     Pistol* pistol;
-    // Guard(const Guard& otherGuard);
 
 public:
     Guard(int id, const char* name, const Date* birthDate, const Date* startingDate, int salary, int numOfWorkingDays, char** weeklyWorkingDays, const char* weaponSpecialty, const Pistol* p)
@@ -37,7 +36,7 @@ public:
 
     const Pistol& getPistol() const {return *pistol;}
 
-    char* showEmployee() const { return "TODO: add implementation"; };
+    const char* showEmployee() const { return "TODO: add implementation"; };
 
     void setWeaponSpecialty(const char* weaponSpecialty)
     {

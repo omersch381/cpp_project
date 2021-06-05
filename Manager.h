@@ -6,8 +6,6 @@ using namespace std;
 
 #include "Employee.h"
 
-
-
 class Manager: public Employee
 {
 public:
@@ -21,7 +19,7 @@ public:
     }
     eDepartment getDepartment() const { return department; }
     void setDepartment(eDepartment _department) { department = _department;}
-    char* showEmployee() const { return "TODO: add implementation"; };
+    const char* showEmployee() const { return "TODO: add implementation"; };
 };
 
 #endif //MANAGER_H
