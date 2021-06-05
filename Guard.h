@@ -37,7 +37,7 @@ public:
 
     const Pistol& getPistol() const {return *pistol;}
 
-    char* showEmployee();
+    char* showEmployee() const { return "TODO: add implementation"; };
 
     void setWeaponSpecialty(const char* weaponSpecialty)
     {

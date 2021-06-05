@@ -21,7 +21,7 @@ public:
     }
     eDepartment getDepartment() const { return department; }
     void setDepartment(eDepartment _department) { department = _department;}
-    char* showEmployee();
+    char* showEmployee() const { return "TODO: add implementation"; };
 };
 
 #endif //MANAGER_H

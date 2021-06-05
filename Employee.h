@@ -49,7 +49,7 @@ public:
 
     friend ostream& operator<<(ostream& os, const Employee& e);
 
-    char* showEmployee();
+    virtual char* showEmployee() const {return "show func in employee";};
 
     const Date* getStartingDate() const{return startingDate;}
     int getSalary() const{return salary;}
