@@ -17,7 +17,7 @@ protected:
 
 public:
     Guard(int id, const char* name, const Date* birthDate, const Date* startingDate, int salary, int numOfWorkingDays, char** weeklyWorkingDays, const char* weaponSpecialty, const Pistol* p)
-    : Employee(id, name, birthDate, startingDate, salary, numOfWorkingDays, weeklyWorkingDays), weaponSpecialty(nullptr), pistol(nullptr)
+            : Employee(id, name, birthDate, startingDate, salary, numOfWorkingDays, weeklyWorkingDays), weaponSpecialty(nullptr), pistol(nullptr)
     {
         setWeaponSpecialty(weaponSpecialty);
         setPistol(p);
@@ -37,13 +37,13 @@ public:
 
     const Pistol& getPistol() const {return *pistol;}
 
-    virtual char* showEmployee();
+    char* showEmployee();
 
     void setWeaponSpecialty(const char* weaponSpecialty)
     {
         delete[]this->weaponSpecialty;
-	    this->weaponSpecialty = new char[strlen(weaponSpecialty) + 1];
-	    strcpy(this->weaponSpecialty, weaponSpecialty);
+        this->weaponSpecialty = new char[strlen(weaponSpecialty) + 1];
+        strcpy(this->weaponSpecialty, weaponSpecialty);
     }
 };
 

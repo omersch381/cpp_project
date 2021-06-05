@@ -11,16 +11,16 @@ using namespace std;
 #include "Manager.h"
 
 class Company
-{ 
-protected: 
+{
+protected:
     Employee** employees;
 
 public:
     // Company();
-    void addGuard(const Guard& g);
-    void addCleaner(const Cleaner& c);
-    void addEngineer(const Engineer& e);
-    void addManager(const Manager& m);
+    void addGuard(const Guard& g){};
+    void addCleaner(const Cleaner& c){};
+    void addEngineer(const Engineer& e){};
+    void addManager(const Manager& m){};
 };
 
 #endif //COMPANY_H

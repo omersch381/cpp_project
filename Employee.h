@@ -24,7 +24,7 @@ protected:
     //     this->weeklyWorkingDays = weeklyWorkingDays;
     // }
     Employee(int id, const char* name, const Date* birthDate, const Date* startingDate, int salary, int numOfWorkingDays, char** weeklyWorkingDays)
-     : Person(id, name, birthDate), startingDate(startingDate), salary(salary), numOfWorkingDays(numOfWorkingDays), weeklyWorkingDays(weeklyWorkingDays)
+            : Person(id, name, birthDate), startingDate(startingDate), salary(salary), numOfWorkingDays(numOfWorkingDays), weeklyWorkingDays(weeklyWorkingDays)
     {
     }
 
@@ -32,9 +32,9 @@ protected:
     {
         delete startingDate;
         for (int i = 0; i < numOfWorkingDays; i++)
-		    delete weeklyWorkingDays[i];
+            delete weeklyWorkingDays[i];
 
-	    delete[]weeklyWorkingDays;
+        delete[]weeklyWorkingDays;
     }
 public:
     bool operator<(const Employee& other) const{return (salary < other.salary);}
@@ -49,7 +49,7 @@ public:
 
     friend ostream& operator<<(ostream& os, const Employee& e);
 
-    virtual char* showEmployee();
+    char* showEmployee();
 
     const Date* getStartingDate() const{return startingDate;}
     int getSalary() const{return salary;}

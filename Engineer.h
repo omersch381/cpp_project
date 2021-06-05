@@ -12,9 +12,20 @@ protected:
     char* specialty;
 
 public:
+    Engineer(int id, const char* name, const Date* birthDate, const Date* startingDate, int salary, int numOfWorkingDays, char** weeklyWorkingDays, const char* specialty)
+            : Employee(id, name, birthDate, startingDate, salary, numOfWorkingDays, weeklyWorkingDays), specialty(nullptr)
+    {
+        setSpecialty(specialty);
+    }
     Engineer(char* specialty);
-    ~Engineer();
-    virtual char* showEmployee();
+    virtual ~Engineer(){};
+    char* showEmployee();
+    void setSpecialty(const char* specialty)
+    {
+        delete[]this->specialty;
+        this->specialty = new char[strlen(specialty) + 1];
+        strcpy(this->specialty, specialty);
+    }
 };
 
 #endif //ENGINEER_H
