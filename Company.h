@@ -12,10 +12,15 @@ using namespace std;
 
 class Company
 {
+    //This class doesnt allow having a copy c'tor, so we made it private.
+private:
+    Company(const Company& otherCompany);
+    const Company& operator=(const Company& otherCompany);
 protected:
     Employee** employees;
-
 public:
+    Company(){};
+    virtual ~Company(){};
     // We didn't allow adding const epmloyees as we might want to update them later on
     void addGuard(Guard& g){};
     void updateGuard(Guard& g){};

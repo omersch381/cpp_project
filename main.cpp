@@ -6,8 +6,6 @@ using namespace std;
 #include "Company.h"
 #include <string.h>
 
-#define DAYS_OF_WEEK 10
-
 int main()
 {
     Company c;

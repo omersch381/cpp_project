@@ -9,7 +9,10 @@ using namespace std;
 
 class Guard: public Employee
 {
-
+    //This class doesnt allow having a copy c'tor, so we made it private.
+private:
+    Guard(const Guard& otherGuard);
+    const Guard& operator=(const Guard& otherGuard);
 protected:
     char* weaponSpecialty;
     Pistol* pistol;
@@ -21,7 +24,7 @@ public:
         setWeaponSpecialty(weaponSpecialty);
         setPistol(p);
     }
-
+    //This class doesnt allow having a copy c'tor
     ~Guard()
     {
         delete this->pistol;

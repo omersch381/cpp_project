@@ -8,25 +8,18 @@ using namespace std;
 
 class Employee : public Person
 {
-
+    //This class doesnt allow having a copy c'tor, so we made it private.
+private:
+    Employee(const Employee& otherEmployee);
+    const Employee& operator=(const Employee& otherEmployee);
 protected:
     const Date* startingDate;
     int salary;
     int numOfWorkingDays;
     char** weeklyWorkingDays;
 
-    // TODO - we might not use this constructor
-    // Employee(const Person& thePerson, const Date& startingDate, int salary, int numOfWorkingDays, char** weeklyWorkingDays): Person(thePerson)
-    // {
-    //     this->startingDate = new Date(startingDate.getDay(), startingDate.getMonth(), startingDate.getYear());
-    //     this->salary = salary;
-    //     this->numOfWorkingDays = numOfWorkingDays;
-    //     this->weeklyWorkingDays = weeklyWorkingDays;
-    // }
     Employee(int id, const char* name, const Date* birthDate, const Date* startingDate, int salary, int numOfWorkingDays, char** weeklyWorkingDays)
-            : Person(id, name, birthDate), startingDate(startingDate), salary(salary), numOfWorkingDays(numOfWorkingDays), weeklyWorkingDays(weeklyWorkingDays)
-    {
-    }
+            : Person(id, name, birthDate), startingDate(startingDate), salary(salary), numOfWorkingDays(numOfWorkingDays), weeklyWorkingDays(weeklyWorkingDays){}
 
     ~Employee()
     {

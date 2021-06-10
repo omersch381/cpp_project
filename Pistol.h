@@ -21,9 +21,9 @@ public:
     {
         *this = otherPistol;
     }
+    virtual ~Pistol(){};
 
     // In Pistol we don't have a dynamic allocation so we don't need a move constructor
-    // TODO
 
     const Pistol& operator=(const Pistol& otherPistol)
     {

@@ -11,6 +11,7 @@ protected:
     int month;
     int year;
 public:
+    // In date we don't have a dynamic allocation so we don't need a move constructor
     Date(const int day, const int month, const int year)
     {
         this->day = day;
@@ -22,9 +23,8 @@ public:
     {
         *this = otherDate;
     }
-    
-    // In date we don't have a dynamic allocation so we don't need a move constructor
-    // TODO
+    virtual ~Date(){};
+
 
     int getDay() const{ return day;}
     int getMonth() const{ return month;}

@@ -9,16 +9,17 @@ using namespace std;
 
 class Person 
 {
-
+    //This class doesnt allow having a copy c'tor, so we made it private.
+private:
+    Person(const Person& otherPerson);
+    const Person& operator=(const Person& otherPerson);
 protected: 
     int id;
     char* name;
     Date* birthDate;
 public:
-    //TODO - we need to make it an abstract class
     Person(int id, const char* name, const Date* birthDate) : id(id), name(nullptr), birthDate(nullptr)
     {
-        // this->id = id;
         setName(name);
         setBirthDate(birthDate);
     }

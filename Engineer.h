@@ -8,6 +8,10 @@ using namespace std;
 
 class Engineer: public Employee
 {
+    //This class doesnt allow having a copy c'tor, so we made it private.
+private:
+    Engineer(const Engineer& otherEngineer);
+    const Engineer& operator=(const Engineer& otherEngineer);
 protected:
     char* specialty;
 
@@ -17,6 +21,7 @@ public:
     {
         setSpecialty(specialty);
     }
+    //This class doesnt allow having a copy c'tor
     Engineer(char* specialty);
     virtual ~Engineer(){};
     const char* showEmployee() const { return "TODO: add implementation"; };
